@@ -4,11 +4,14 @@
     "nixpacksConfig": {
       "providers": ["node"],
       "phases": {
+        "setup": {
+          "nixPkgs": ["nodejs_18", "python3", "gcc", "make"]
+        },
         "install": {
-          "cmds": ["npm install"]
+          "cmds": ["cd backend && npm install --legacy-peer-deps"]
         },
         "start": {
-          "cmds": ["npm start"]
+          "cmds": ["cd backend && npm start"]
         }
       }
     }
